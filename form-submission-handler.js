@@ -90,26 +90,20 @@
     var download = parseInt($('#Download').val()) || 0;
     var upload = parseInt($('#Upload').val()) || 0;
 
-    navigator.permissions.query(
-        { name: 'microphone' }
-    ).then(function(permissionStatus){
-      var testStatus = 'PAS OK';
-      console.log(permissionStatus.state, download, upload);
+    var testStatus = 'PAS OK';
+    if (($('#Son').val().toLowerCase() === 'oui') && download > 0 && upload > 0) {
+      testStatus = 'OK';
+      $('#result').text('Le test est concluant, vous allez pouvoir suivre la formation.');
+    } else {
+      $('#result').text('Malheureusement vous ne disposé pas des prérequis technique');
+    }
 
-      if (permissionStatus.state === 'granted' && download > 0 && upload > 0) {
-        testStatus = 'OK';
-        $('#result').text('Le test est concluant, vous allez pouvoir suivre la formation.');
-      } else {
-        $('#result').text('Malheureusement vous ne disposé pas des prérequis technique');
-      }
-
-      data.resultat_test = testStatus;
-      // url encode form data for sending as post data
-      var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-      }).join('&');
-      xhr.send(encoded);
-    })
+    data.resultat_test = testStatus;
+    // url encode form data for sending as post data
+    var encoded = Object.keys(data).map(function(k) {
+      return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+    }).join('&');
+    xhr.send(encoded);
   }
 
   function loaded() {
