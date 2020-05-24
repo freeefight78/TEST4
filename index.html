@@ -161,7 +161,7 @@
                   <!-- <audio id="gum-audio"></audio> AUDIO -->
                                  <br>
                                  <br>
-                                   <a id="button" class="btn-learnmore-orange" style="width: 86%; font-size: 200%; font-weight: bold;" onclick="toggleTest()">Cliquer ici pour démarrer le test video / audio</a>
+                                   <a id="button" class="btn-learnmore-orange" style="width: 86%; font-size: 200%; font-weight: bold;" onclick="toggleTest()">Cliquez ici pour démarrer le test video / audio</a>
                                    <p style="font-size: 150%; padding-top: 3%; font-weight: bold; color: orange;" id="errorMsg"></p>
                                   
                   
@@ -288,10 +288,12 @@
                </div>
 
                <div class="col-md-4 col-sm-4">
-                    <p>1 place de la pyramide, PUTEAUX</p>
+                    <p>1 place de la Pyramide</p>
+                    <p>92911 Paris La Défense Cedex</p>
                </div>
 
                 <div class="col-md-5 col-sm-5">
+                     <br>
                      <p>Ib Formation | <font size=0.2rem ><em>by Aires Ribeiro Jérémy</em></font></p>
                     </div>
 
@@ -897,12 +899,12 @@
         var vid = document.getElementById("gum-video");
         var aud = document.getElementById("gum-audio");
 
-        if (but.innerHTML == "Cliquer ici pour démarrer le test video / audio") {
+        if (but.innerHTML == "Cliquez ici pour démarrer le test video / audio") {
           but.innerHTML = "Stop Test";
           vid.play();
           aud.play();
         } else {
-          but.innerHTML = "Cliquer ici pour démarrer le test video / audio";
+          but.innerHTML = "Cliquez ici pour démarrer le test video / audio";
           vid.pause();
           aud.pause();
         }
